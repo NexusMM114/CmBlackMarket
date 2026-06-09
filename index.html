@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Services Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <header>
+        <div class="logo">
+            <img src="https://cdn.discordapp.com/emojis/1286917170843877458.gif?size=96" alt="Rocket">
+            Premium Store
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#discord-section">Gaming</a></li>
+                <li><a href="#streaming-section">Streaming</a></li>
+                <li><a href="#domain-section">Domains</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2 class="category-title">Discord & Minecraft</h2>
+    <section class="store-container" id="discord-section"></section>
+
+    <h2 class="category-title">Streaming Services</h2>
+    <section class="store-container" id="streaming-section"></section>
+
+    <h2 class="category-title">Web & Server Domains</h2>
+    <p class="category-subtitle">*Note: Sometime the price will may depend upon the name of your domain.</p>
+    <section class="store-container" id="domain-section"></section>
+
+    <h2 class="category-title">Utilities & Accounts</h2>
+    <section class="store-container" id="utility-section"></section>
+
+    <footer><p>&copy; 2026 Premium Services Store. Fast Delivery | Unlimited Quantity.</p></footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const products = getProducts();
+            const discordSec = document.getElementById('discord-section');
+            const streamingSec = document.getElementById('streaming-section');
+            const utilitySec = document.getElementById('utility-section');
+            const domainSec = document.getElementById('domain-section');
+
+            products.forEach(p => {
+                if(p.category === 'discord') discordSec.innerHTML += createProductCard(p);
+                if(p.category === 'streaming') streamingSec.innerHTML += createProductCard(p);
+                if(p.category === 'utility') utilitySec.innerHTML += createProductCard(p);
+                if(p.category === 'domain') domainSec.innerHTML += createProductCard(p);
+            });
+        });
+    </script>
+</body>
+</html>
